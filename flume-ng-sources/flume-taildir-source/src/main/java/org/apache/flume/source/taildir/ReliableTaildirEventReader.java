@@ -251,7 +251,9 @@ public class ReliableTaildirEventReader implements ReliableEventReader {
           continue;
         }
         TailFile tf = tailFiles.get(inode);
-        if (tf == null || !tf.getPath().equals(f.getAbsolutePath())) {
+        // if (tf == null || !tf.getPath().equals(f.getAbsolutePath())) {
+        // flume taildir 修改源码：用来监控指定目录下 inode 不变时，断点续传新日志：
+        if (tf == null) {
           long startPos = skipToEnd ? f.length() : 0;
           tf = openFile(f, headers, inode, startPos);
         } else {

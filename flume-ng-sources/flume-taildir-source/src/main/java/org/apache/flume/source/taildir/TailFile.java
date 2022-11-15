@@ -120,7 +120,9 @@ public class TailFile {
   }
 
   public boolean updatePos(String path, long inode, long pos) throws IOException {
-    if (this.inode == inode && this.path.equals(path)) {
+    // if (this.inode == inode && this.path.equals(path)) {
+    // flume taildir 修改源码：用来监控指定目录下 inode 不变时，断点续传新日志：
+    if (this.inode == inode) {
       setPos(pos);
       updateFilePos(pos);
       logger.info("Updated position, file: " + path + ", inode: " + inode + ", pos: " + pos);
