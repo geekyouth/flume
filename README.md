@@ -1,3 +1,16 @@
+# taildirsource bugfix
+```shell
+# 注释掉所有 checkstyle
+# 更新版本号 1.9.0
+mvn clean versions:set "-DnewVersion=1.9.0"
+
+cd flume-ng-sources/flume-taildir-source
+
+mvn clean install deploy "-DskipTests" -T 2C "-Dcheckstyle.skip" -am 
+# 发布到 github 托管 jar
+# https://github.com/geekyouth/flume/packages/1751265
+```
+
 <!--
 Licensed to the Apache Software Foundation (ASF) under one
 or more contributor license agreements.  See the NOTICE file

@@ -423,7 +423,7 @@ limitations under the License.
     <url>http://www.apache.org</url>
   </organization>
 
-  <distributionManagement>
+  <!-- <distributionManagement>
     <repository>
       <id>apache.staging.https</id>
       <name>Apache Staging Repository</name>
@@ -434,6 +434,13 @@ limitations under the License.
       <url>${siteUrlDeployment}</url>
       <name>Flume Site</name>
     </site>
+  </distributionManagement> -->
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <name>GitHub OWNER Apache Maven Packages</name>
+      <url>https://maven.pkg.github.com/geekyouth/flume</url>
+    </repository>
   </distributionManagement>
 
   <build>
@@ -444,10 +451,10 @@ limitations under the License.
         <groupId>org.apache.rat</groupId>
         <artifactId>apache-rat-plugin</artifactId>
       </plugin>
-      <plugin>
+      <!-- <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-      </plugin>
+      </plugin> -->
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
@@ -548,19 +555,19 @@ limitations under the License.
           </executions>
         </plugin>
 
-        <plugin>
+        <!-- <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-checkstyle-plugin</artifactId>
           <version>${mvn-checkstyle-plugin.version}</version>
           <dependencies>
-            <!-- The build-support module adds the checkstyle config files to the classpath. -->
+            &lt;!&ndash; The build-support module adds the checkstyle config files to the classpath. &ndash;&gt;
             <dependency>
               <groupId>org.apache.flume</groupId>
               <artifactId>build-support</artifactId>
               <version>${project.version}</version>
             </dependency>
-            <!-- Newer versions of puppycrawl checkstyle have more features. Pull in a more recent
-                 version than is specified in the maven-checkstyle-plugin pom file. -->
+            &lt;!&ndash; Newer versions of puppycrawl checkstyle have more features. Pull in a more recent
+                 version than is specified in the maven-checkstyle-plugin pom file. &ndash;&gt;
             <dependency>
               <groupId>com.puppycrawl.tools</groupId>
               <artifactId>checkstyle</artifactId>
@@ -584,7 +591,7 @@ limitations under the License.
             <includeTestSourceDirectory>true</includeTestSourceDirectory>
             <linkXRef>false</linkXRef>
           </configuration>
-        </plugin>
+        </plugin> -->
 
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -1594,10 +1601,10 @@ limitations under the License.
           <sourceDirectory>${project.basedir}/flume-ng-doc/sphinx</sourceDirectory>
         </configuration>
       </plugin>
-      <plugin>
+      <!-- <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-      </plugin>
+      </plugin> -->
       <plugin>
         <groupId>com.github.spotbugs</groupId>
         <artifactId>spotbugs-maven-plugin</artifactId>
